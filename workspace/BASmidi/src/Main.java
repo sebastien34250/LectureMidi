@@ -24,7 +24,7 @@ import javax.sound.midi.MidiDevice.Info;
 public class Main {
 
 	public static void main(String[] args) throws InvalidMidiDataException, IOException, MidiUnavailableException{
-		
+		//yeah
 		Choisir();
 		
 	}
