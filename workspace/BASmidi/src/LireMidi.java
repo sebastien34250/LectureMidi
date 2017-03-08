@@ -34,7 +34,25 @@ public class LireMidi {
 		return boucle;
 	}
 	
-	private Sequencer LireSequence(Sequence sequence2) {
+	private Sequence DéfinirSequence(File boucle) {
+		// La s�quence est d�finie par le fichier
+		Sequence sequence = null;
+		try {
+			try {
+				sequence = MidiSystem.getSequence(boucle);
+			} catch (InvalidMidiDataException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sequence.getPatchList().toString();
+		return sequence;
+	}
+
+	private Sequencer LireSequence(Sequence sequence) {
 		// On met la s�quence dans le s�quenceur et on lance le sequenceur
 		Sequencer sequencer = null;
 		try {
@@ -56,25 +74,9 @@ public class LireMidi {
 			e.printStackTrace();
 		}
 		sequencer.start();
+		sequencer.setTempoInBPM(180);
+		sequencer.setLoopCount(3);
 		return sequencer;
 	}
 	
-	private Sequence DéfinirSequence(File boucle2) {
-		// La s�quence est d�finie par le fichier
-		Sequence sequence = null;
-		try {
-			try {
-				sequence = MidiSystem.getSequence(boucle);
-			} catch (InvalidMidiDataException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		sequence.getPatchList().toString();
-		return sequence;
-	}
-
 }

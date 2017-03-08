@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -24,18 +25,41 @@ import javax.sound.midi.MidiDevice.Info;
 public class Main {
 
 	public static void main(String[] args) throws InvalidMidiDataException, IOException, MidiUnavailableException{
-		//yeah
+		
 		Choisir();
 		
 	}
 
 	private static void Choisir() throws InputMismatchException {
+		ArrayList list = new ArrayList<>();
+		list.add("Afficher les loops");
+		list.add("Choisir une loop");
+		list.add("Changer de loop");
+		list.add("stop");
+		list.add("pause");
+		list.add("lecture");
+		list.add("Mettre un instrument en solo");
+		list.add("Mettre un instrument en mute");
+		list.add("Mettre tous les instruments en marche");
+		list.add("Mettre tous les instruments en mute");
+		list.add("Changer de tempo");
+		list.add("Modifier la loop");
+		list.add("Définir les instruments des pads");
+		list.add("Lire les pads");
+		list.add("Enregistrer la loop modifiée");
+		list.add("Sauvegarder");
+		list.add("Créer un espace client");
+		list.add("Se connecter à l'espace client");
+		
+		for (int i=0; i<list.size();i++){
+			System.out.println(i + "\t" + list.get(i).toString());
+		}
+		
 		Scanner scanner = new Scanner(System.in);
 		Boolean continuer = true;
 		
 		try{
 			while (continuer){
-				System.out.println("Entrer 1 ou 2");
 				int reponse = scanner.nextInt();		
 				
 				if (reponse == 1){
