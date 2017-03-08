@@ -8,8 +8,11 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
-public class LireMidi {
-		
+public class Lecture {
+	
+	// La boucle est lue.
+	
+	
 	File boucle = 			ChoisirBoucle();		
 	Sequence sequence = 	DéfinirSequence(boucle);
 	Sequencer sequencer = 	LireSequence(sequence);
@@ -74,9 +77,6 @@ public class LireMidi {
 			e.printStackTrace();
 		}
 		sequencer.start();
-		sequencer.setTempoInBPM(180);
-		sequencer.setLoopCount(3);
 		return sequencer;
 	}
-	
 }
