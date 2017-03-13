@@ -15,36 +15,36 @@ public class Pause {
 	
 	public Pause(Lecture lect){
 		this.lec=lect;
-		Boolean pause = true;
-		while(pause){
+		
+		Boolean relecture = true;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("appuyer sur l ,p ou s");
 		String rep= sc.nextLine();
+		lec.sequencer.setLoopCount(4);
+		
+while(relecture){			
 		
 		
-		
-			
-		
-		if(rep.equals("l")){
-			lect.sequencer.getLoopStartPoint();
-			lect.sequencer.start();
-			
-		}
 		if(rep.equals("p")){
-			lect.sequencer.stop();
+			lec.sequencer.stop();
 			
-			lect.sequencer.setLoopStartPoint(lect.sequence.getTickLength());
+			lec.sequencer.setLoopStartPoint(lect.sequence.getTickLength());
 			System.out.println("reprendre oui ou non ?");
+			//Scanner sc2 = new Scanner(System.in);
 			String rep2 = sc.nextLine();
 			
 			if(rep2.equals("o")){
-				rep="l";
+				lec.sequencer.getLoopStartPoint();
+				lec.sequencer.start();
+				System.out.println("appuyer sur l ,p ou s");
+				rep= sc.nextLine();
 			}
 			else{
-				pause = false;
+				relecture= false;
 			}
+			
 		}
-		}
+}
 	}
 		
 	
