@@ -1,9 +1,12 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
+import javax.sound.midi.Sequence;
+import javax.sound.midi.Sequencer;
 
 public class Main {
 
@@ -60,7 +63,15 @@ public class Main {
 					new Stop();
 				}
 				if (reponse == 4){
-					new Pause();
+					
+					Lecture lect = new Lecture();
+					Pause pause = new Pause (lect);
+					
+//					if(rep.equals("s")){
+//						sequencer.start();
+//					}
+					
+					
 				}
 				if (reponse == 5){
 					new Lecture();
