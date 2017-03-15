@@ -25,7 +25,7 @@ public class Main {
 		list.add("Changer de loop");
 		list.add("stop");
 		list.add("pause");
-		list.add("lecture");	// Seb: DONE
+		list.add("lecture en continu");	// Seb: DONE
 		list.add("Mettre un instrument en solo");
 		list.add("Mettre un instrument en mute");
 		list.add("Mettre tous les instruments en marche");

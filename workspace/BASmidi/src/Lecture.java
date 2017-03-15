@@ -10,8 +10,8 @@ import javax.sound.midi.Sequencer;
 
 public class Lecture {
 	
+	private static final int LOOP_CONTINUOUSLY = -1;
 	// La boucle est lue.
-	
 	
 	File boucle = 			ChoisirBoucle();		
 	Sequence sequence = 	DéfinirSequence(boucle);
@@ -33,6 +33,7 @@ public class Lecture {
 		else {
 			choix ="fpc_Pop_01.mid";
 		}
+//		sc.close();
 		File boucle = new File(choix);
 		return boucle;
 	}
@@ -40,42 +41,55 @@ public class Lecture {
 	private Sequence DéfinirSequence(File boucle) {
 		// La s�quence est d�finie par le fichier
 		Sequence sequence = null;
+		
 		try {
+			
 			try {
 				sequence = MidiSystem.getSequence(boucle);
-			} catch (InvalidMidiDataException e) {
-				// TODO Auto-generated catch block
+			} 
+			
+			catch (InvalidMidiDataException e) {
 				e.printStackTrace();
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
+		} 
+		
+		catch (IOException e) {
 			e.printStackTrace();
 		}
-		sequence.getPatchList().toString();
+		
 		return sequence;
 	}
 
 	private Sequencer LireSequence(Sequence sequence) {
-		// On met la s�quence dans le s�quenceur et on lance le sequenceur
+		// On met la séquence dans le séquenceur et on lance le séquenceur
 		Sequencer sequencer = null;
+		
 		try {
 			sequencer = MidiSystem.getSequencer();
-		} catch (MidiUnavailableException e) {
-			// TODO Auto-generated catch block
+		}
+		catch (MidiUnavailableException e) {
 			e.printStackTrace();
 		}
+		
+		
 		try {
 			sequencer.open();
-		} catch (MidiUnavailableException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (MidiUnavailableException e) {
 			e.printStackTrace();
 		}
+		
+		
 		try {
 			sequencer.setSequence(sequence);
-		} catch (InvalidMidiDataException e) {
-			// TODO Auto-generated catch block
+			sequencer.setLoopCount(LOOP_CONTINUOUSLY);
+		} 
+		catch (InvalidMidiDataException e) {
 			e.printStackTrace();
 		}
+		
+		
 		sequencer.start();
 		return sequencer;
 	}
