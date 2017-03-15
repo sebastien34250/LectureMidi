@@ -65,7 +65,7 @@ public class Main {
 				if (reponse == 4){
 					
 					
-					Boolean relecture = true;
+					
 					Lecture lect = new Lecture();
 					Pause pause = new Pause (lect);
 					
