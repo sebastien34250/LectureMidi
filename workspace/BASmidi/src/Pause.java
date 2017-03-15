@@ -29,7 +29,7 @@ while(relecture){
 			lec.sequencer.stop();
 			
 			lec.sequencer.setLoopStartPoint(lect.sequence.getTickLength());
-			System.out.println("pour reprendre appuyer sur la lettre o ?");
+			System.out.println("pour reprendre appuyer sur la lettre 'o' ?");
 			//Scanner sc2 = new Scanner(System.in);
 			String rep2 = sc.nextLine();
 			
