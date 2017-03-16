@@ -10,7 +10,7 @@ import javax.sound.midi.Sequencer;
 
 public class Pause {
 	// La boucle est en train d'être lue, l'utilisateur la met sur pause.
-	
+	private static final int LOOP_CONTINUOUSLY = -1;
 	private Lecture lec;
 	
 	public Pause(Lecture lect){
@@ -20,22 +20,30 @@ public class Pause {
 		Scanner sc = new Scanner(System.in);
 		
 		String rep= sc.nextLine();
-		lec.sequencer.setLoopCount(4);
+//		lec.sequencer.setLoopCount(4);
 		
 while(relecture){			
-		
+	
 		
 		if(rep.equals("p")){
+			
 			lec.sequencer.stop();
 			
 			lec.sequencer.setLoopStartPoint(lect.sequence.getTickLength());
+			
 			System.out.println("pour reprendre appuyer sur la lettre 'o' ?");
 			//Scanner sc2 = new Scanner(System.in);
 			String rep2 = sc.nextLine();
-			
+
 			if(rep2.equals("o")){
-				lec.sequencer.getLoopStartPoint();
+				
+				
+				//lec.sequencer.getLoopStartPoint();
+
 				lec.sequencer.start();
+				
+
+				
 				System.out.println("appuyer p pour mettre pause");
 				rep= sc.nextLine();
 			}

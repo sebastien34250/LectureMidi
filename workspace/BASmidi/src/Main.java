@@ -65,7 +65,7 @@ public class Main {
 				if (reponse == 4){
 					
 					
-					
+					System.out.println("Pour mettre sur pause, appuyer sur la lettre 'p' ?");
 					Lecture lect = new Lecture();
 					Pause pause = new Pause (lect);
 					
