@@ -8,39 +8,46 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
+import model.DAOFactory;
+import model.daoLoop;
+import object.Loop;
+
+
 public class Main {
 
 	public static void main(String[] args) throws InvalidMidiDataException, IOException, MidiUnavailableException{
+		
 		
 		Choisir();
 	}
 
 	private static void Choisir() throws InputMismatchException {
-		ArrayList<Object> list = new ArrayList<>();
+		ArrayList<Object> listf = new ArrayList<>();
+		
 		
 		// On ajoute notre nom et l'état d'avancement de la fonction
 		
-		list.add("Afficher les loops");
-		list.add("Choisir une loop");
-		list.add("Changer de loop");
-		list.add("stop");
-		list.add("pause");
-		list.add("lecture en continu");	// Seb: DONE
-		list.add("Mettre un instrument en solo");
-		list.add("Mettre un instrument en mute");
-		list.add("Mettre tous les instruments en marche");
-		list.add("Mettre tous les instruments en mute");
-		list.add("Changer de tempo");
-		list.add("Modifier la loop");
-		list.add("Définir les instruments des pads");
-		list.add("Lire les pads");
-		list.add("Enregistrer la loop modifiée");
-		list.add("Sauvegarder");
-		list.add("Créer un espace client");
-		list.add("Se connecter à l'espace client");
+		listf.add("Afficher les loops");
+		listf.add("Choisir une loop");
+		listf.add("Changer de loop");
+		listf.add("stop");
+		listf.add("pause");
+		listf.add("lecture en continu");	// Seb: DONE
+		listf.add("Mettre un instrument en solo");
+		listf.add("Mettre un instrument en mute");
+		listf.add("Mettre tous les instruments en marche");
+		listf.add("Mettre tous les instruments en mute");
+		listf.add("Changer de tempo");
+		listf.add("Modifier la loop");
+		listf.add("Définir les instruments des pads");
+		listf.add("Lire les pads");
+		listf.add("Enregistrer la loop modifiée");
+		listf.add("Sauvegarder");
+		listf.add("Créer un espace client");
+		listf.add("Se connecter à l'espace client");
 		
-		for (int i=0; i<list.size();i++){
-			System.out.println(i + "\t" + list.get(i).toString());
+		for (int i=0; i<listf.size();i++){
+			System.out.println(i + "\t" + listf.get(i).toString());
 		}
 		
 		Scanner scanner = new Scanner(System.in);
@@ -51,7 +58,10 @@ public class Main {
 				int reponse = scanner.nextInt();		
 				
 				if (reponse == 0){
-					new AfficherLoop();
+					ArrayList<Loop> daoLoop = DAOFactory.getDAOLoop().readAll();
+					System.out.println(daoLoop.toString());
+					
+					
 				}
 				if (reponse == 1){
 					new ChoisirLoop();
@@ -116,6 +126,9 @@ public class Main {
 					new SeConnecterEspaceClient();
 				}
 			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		finally {
