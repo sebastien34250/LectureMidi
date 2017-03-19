@@ -20,28 +20,13 @@ public class Lecture {
 	
 	private File ChoisirBoucle() {
 //		// Choix du fichier
-		String choix = null;
-//		System.out.println("1=909, 2=dance, 3=pop");
-//		Scanner sc = new Scanner(System.in);
-//		int numero = sc.nextInt();
-//		if (numero == 1){
-//			choix = "909kit_01.mid";
-//		}
-//		else if (numero ==2){
-//			choix = "loop.mid";
-//		}
-//		else {
-//			choix ="fpc_Pop_01.mid";
-//		}
-////		sc.close();
-		
-		choix = "loop.mid";
+		String choix = "LOOP/aha.mid";
 		File boucle = new File(choix);
 		return boucle;
 	}
 	
 	private Sequence DéfinirSequence(File boucle) {
-		// La s�quence est d�finie par le fichier
+		// La séquence est définie par le fichier
 		Sequence sequence = null;
 		
 		try {
