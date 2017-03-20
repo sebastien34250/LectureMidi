@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import object.Creation;
 import object.Loop;
+import object.User;
 
 public class daoCreation implements IDAO<Creation>{
 
@@ -35,6 +36,11 @@ public class daoCreation implements IDAO<Creation>{
 	public boolean delete(Creation object) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public ArrayList<Creation> readAll(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

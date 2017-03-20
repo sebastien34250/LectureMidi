@@ -18,8 +18,28 @@ public class daoLoop implements IDAO<Loop>{
 
 	@Override
 	public Loop read(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	
+		String loop_cover = null;
+		String loop_name = null;
+		Loop loop = new Loop(id, loop_name, loop_cover);
+		try {
+			String query = "SELECT * FROM mysample.`loop` where idLoop=?";
+			
+			PreparedStatement preparedStatement = Connect.getConnection().prepareStatement(query);
+			preparedStatement.setInt(1, id);
+			
+			ResultSet resultSet = preparedStatement.executeQuery();
+			   
+			if (resultSet.next()) {
+			loop = new Loop(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3));
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return loop;
 	}
 
 	@Override

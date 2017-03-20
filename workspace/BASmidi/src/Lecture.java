@@ -8,6 +8,9 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
+import model.DAOFactory;
+import object.Loop;
+
 public class Lecture {
 	
 	private static final int LOOP_CONTINUOUSLY = -1;
@@ -17,10 +20,10 @@ public class Lecture {
 	Sequence sequence = 	DéfinirSequence(boucle);
 	Sequencer sequencer = 	LireSequence(sequence);
 	
-	
+
 	private File ChoisirBoucle() {
 //		// Choix du fichier
-		String choix = "LOOP/aha.mid";
+		String choix = "LOOP/police.mid";
 		File boucle = new File(choix);
 		return boucle;
 	}

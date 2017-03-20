@@ -1,20 +1,20 @@
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Sequence;
-import javax.sound.midi.Sequencer;
 
-import model.DAOFactory;
 import model.daoLoop;
 import object.Loop;
 
 
 public class Main {
 
+	
+	static Loop choixLoop; 
+	
+	
 	public static void main(String[] args) throws InvalidMidiDataException, IOException, MidiUnavailableException{
 		
 		
@@ -27,12 +27,12 @@ public class Main {
 		
 		// On ajoute notre nom et l'état d'avancement de la fonction
 		
-		listf.add("Afficher les loops");
+		listf.add("Afficher les loops");				// Seb: DONE
 		listf.add("Choisir une loop");
 		listf.add("Changer de loop");
 		listf.add("stop");
-		listf.add("pause");
-		listf.add("lecture en continu");	// Seb: DONE
+		listf.add("pause");								// Elisabeth:
+		listf.add("lecture en continu");				// Seb: DONE
 		listf.add("Mettre un instrument en solo");
 		listf.add("Mettre un instrument en mute");
 		listf.add("Mettre tous les instruments en marche");
@@ -43,8 +43,8 @@ public class Main {
 		listf.add("Lire les pads");
 		listf.add("Enregistrer la loop modifiée");
 		listf.add("Sauvegarder");
-		listf.add("Créer un espace client");
-		listf.add("Se connecter à l'espace client");
+		listf.add("Créer un espace client");			// Seb:
+		listf.add("Se connecter à l'espace client");	// Seb:
 		
 		for (int i=0; i<listf.size();i++){
 			System.out.println(i + "\t" + listf.get(i).toString());
@@ -58,12 +58,10 @@ public class Main {
 				int reponse = scanner.nextInt();		
 				
 				if (reponse == 0){
-					ArrayList<Loop> daoLoop = DAOFactory.getDAOLoop().readAll();
-					System.out.println(daoLoop.toString());
-					
-					
+					new AfficherLoop();	
 				}
 				if (reponse == 1){
+//					int choixLoop;
 					new ChoisirLoop();
 				}
 				if (reponse == 2){
@@ -78,15 +76,10 @@ public class Main {
 					System.out.println("Pour mettre sur pause, appuyer sur la lettre 'p' ?");
 					Lecture lect = new Lecture();
 					Pause pause = new Pause (lect);
-					
-					
-					
-					
-
-					
-					
+	
 				}
 				if (reponse == 5){
+					
 					new Lecture();
 				}
 				if (reponse == 6){
