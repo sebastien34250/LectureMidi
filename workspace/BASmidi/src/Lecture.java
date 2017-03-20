@@ -15,7 +15,10 @@ public class Lecture {
 	
 	private static final int LOOP_CONTINUOUSLY = -1;
 	// La boucle est lue.
-	
+	private Loop loop;
+	public Lecture (Loop loop){
+		this.loop=loop;
+	}
 	File boucle = 			ChoisirBoucle();		
 	Sequence sequence = 	DéfinirSequence(boucle);
 	Sequencer sequencer = 	LireSequence(sequence);

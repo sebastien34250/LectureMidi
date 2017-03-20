@@ -39,8 +39,7 @@ while(relecture){
 
 			if(rep2.equals("o")){
 			
-				lec.sequencer.setTickPosition(lec.sequencer.getTickPosition());
-			//	lec.sequencer.setLoopStartPoint(lec.sequencer.getTickPosition());
+		
 				lec.sequencer.start();
 				
 			

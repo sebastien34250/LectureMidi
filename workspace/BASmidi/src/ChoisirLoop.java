@@ -9,11 +9,11 @@ public class ChoisirLoop {
 	
 	
 	Scanner scan = new Scanner(System.in);
-	
+	public Loop daoLoop = null;
 	
 	public  ChoisirLoop(){
 		System.out.println("Entrer le numéro de la loop");
-		Loop daoLoop = null;
+		
 		try {
 			int choixLoop = scan.nextInt();
 			daoLoop = DAOFactory.getDAOLoop().read(choixLoop);

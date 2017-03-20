@@ -13,6 +13,7 @@ public class Main {
 
 	
 	static Loop choixLoop; 
+	static ChoisirLoop choisirLoop;
 	
 	
 	public static void main(String[] args) throws InvalidMidiDataException, IOException, MidiUnavailableException{
@@ -62,10 +63,10 @@ public class Main {
 				}
 				if (reponse == 1){
 //					int choixLoop;
-					new ChoisirLoop();
+					choisirLoop= new ChoisirLoop();
 				}
 				if (reponse == 2){
-					new ChangerLoop();
+					 new ChangerLoop();
 				}
 				if (reponse == 3){
 					new Stop();
@@ -74,13 +75,13 @@ public class Main {
 					
 					
 					System.out.println("Pour mettre sur pause, appuyer sur la lettre 'p' ?");
-					Lecture lect = new Lecture();
+					Lecture lect = new Lecture(choisirLoop.daoLoop);
 					Pause pause = new Pause (lect);
 	
 				}
 				if (reponse == 5){
 					
-					new Lecture();
+					new Lecture(choisirLoop.daoLoop);
 				}
 				if (reponse == 6){
 					new InstrumentSolo();
