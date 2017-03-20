@@ -16,17 +16,23 @@ public class Lecture {
 	private static final int LOOP_CONTINUOUSLY = -1;
 	// La boucle est lue.
 	private Loop loop;
+	public File boucle ;		
+	Sequence sequence ;
+	Sequencer sequencer;
 	public Lecture (Loop loop){
 		this.loop=loop;
+		 boucle = 			ChoisirBoucle();		
+		 sequence = 	DéfinirSequence(boucle);
+		 sequencer = 	LireSequence(sequence);
 	}
-	File boucle = 			ChoisirBoucle();		
-	Sequence sequence = 	DéfinirSequence(boucle);
-	Sequencer sequencer = 	LireSequence(sequence);
+
 	
 
 	private File ChoisirBoucle() {
 //		// Choix du fichier
-		String choix = "LOOP/police.mid";
+		//"LOOP/police.mid"
+		System.out.println(loop.getLoop_name());
+		String choix ="LOOP/"+loop.getLoop_name();
 		File boucle = new File(choix);
 		return boucle;
 	}

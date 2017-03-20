@@ -12,9 +12,9 @@ import object.Loop;
 public class Main {
 
 	
-	static Loop choixLoop; 
+	//static Loop choixLoop; 
 	static ChoisirLoop choisirLoop;
-	
+	static Lecture lect;
 	
 	public static void main(String[] args) throws InvalidMidiDataException, IOException, MidiUnavailableException{
 		
@@ -75,13 +75,13 @@ public class Main {
 					
 					
 					System.out.println("Pour mettre sur pause, appuyer sur la lettre 'p' ?");
-					Lecture lect = new Lecture(choisirLoop.daoLoop);
+					
 					Pause pause = new Pause (lect);
 	
 				}
 				if (reponse == 5){
 					
-					new Lecture(choisirLoop.daoLoop);
+					lect=	new Lecture(choisirLoop.daoLoop);
 				}
 				if (reponse == 6){
 					new InstrumentSolo();
