@@ -89,7 +89,7 @@ public class Main {
 					
 				}
 				if (reponse == 6){
-					new InstrumentSolo();
+				InstrumentSolo instr=new InstrumentSolo(lect);
 				}
 				if (reponse == 7){
 					new InstrumentMute();
