@@ -5,8 +5,10 @@ import java.util.Scanner;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
+import javax.sound.midi.Patch;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
+import javax.sound.midi.Soundbank;
 
 import model.DAOFactory;
 import object.Loop;
@@ -17,8 +19,10 @@ public class Lecture {
 	// La boucle est lue.
 	private Loop loop;
 	public File boucle ;		
-	Sequence sequence ;
-	Sequencer sequencer;
+	public Sequence sequence ;
+	public Sequencer sequencer;
+	public Soundbank sound;
+	
 	public Lecture (Loop loop){
 		this.loop=loop;
 		 boucle = 			ChoisirBoucle();		
@@ -30,8 +34,7 @@ public class Lecture {
 
 	private File ChoisirBoucle() {
 //		// Choix du fichier
-		//"LOOP/police.mid"
-		System.out.println(loop.getLoop_name());
+
 		String choix ="LOOP/"+loop.getLoop_name();
 		File boucle = new File(choix);
 		return boucle;
@@ -45,6 +48,7 @@ public class Lecture {
 			
 			try {
 				sequence = MidiSystem.getSequence(boucle);
+		//	sound =	MidiSystem.getSoundbank(boucle);
 			} 
 			
 			catch (InvalidMidiDataException e) {
@@ -66,6 +70,7 @@ public class Lecture {
 		
 		try {
 			sequencer = MidiSystem.getSequencer();
+			
 		}
 		catch (MidiUnavailableException e) {
 			e.printStackTrace();

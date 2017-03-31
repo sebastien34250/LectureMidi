@@ -1,39 +1,65 @@
-import javax.sound.midi.Instrument;
+import java.io.File;
+import java.io.IOException;
+
+
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MidiEvent;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
+
+import javax.sound.midi.Sequence;
+import javax.sound.midi.Soundbank;
 import javax.sound.midi.Synthesizer;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
+import javax.sound.midi.Track;
+
 
 class Instruments {
 
     public static void main(String[] args) throws MidiUnavailableException {
-        Synthesizer synthesizer = MidiSystem.getSynthesizer();
-        synthesizer.open();
-        Instrument[] orchestra = synthesizer.getAvailableInstruments();
+   	//String choix ="LOOP/Evid.mid";
+  //  	String choix ="LOOP/africa.mid";
+    	String choix ="LOOP/shortPolice.mid";
+		File boucle = new File(choix);
+		Soundbank sound=null;
+	//	 sequence = null;
+		
+		
+		try {
+			
+			try {
+				Sequence	sequence = MidiSystem.getSequence(boucle);
+				Track [] tracks = sequence.getTracks();
+				
+				for ( int i = 0; i < tracks.length; i++ ) {
+				      System.out.println( "Track " + i + ":" );
+				      Track track = tracks[ i ];
+				      for ( int j = 0; j < track.size(); j++ ) {
+				       MidiEvent event = track.get( j );
+				     System.out.println (" tick "+ event.getTick() + ", " + 
+				           MessageInfo.toString( event.getMessage() ) );
+				    } // for
+				    } // for
+				
+				
+			} 
+			
+			catch (InvalidMidiDataException e) {
+				e.printStackTrace();
+			}
 
-        final StringBuilder sb = new StringBuilder();
-        String eol = System.getProperty("line.separator");
-        sb.append("The orchestra has ");
-        sb.append(orchestra.length);
-        sb.append(" instruments.");
-        sb.append(eol);
-        for (Instrument instrument : orchestra) {
-            sb.append(instrument.toString());
-            sb.append(eol);
-        }
-        synthesizer.close();
+		} 
+		
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		if (sound == null)
+		{
+			System.out.println("no soundbank");
+			
+		}
 
-        Runnable r = new Runnable() {
-
-            @Override
-            public void run() {
-                JOptionPane.showMessageDialog(null,
-                        new JScrollPane(new JTextArea(sb.toString(), 20, 30)));
-            }
-        };
-        SwingUtilities.invokeLater(r);
+		
+				
     }
-}
+    }

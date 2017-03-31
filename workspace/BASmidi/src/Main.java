@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import javax.sound.midi.Instrument;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 
@@ -82,6 +84,9 @@ public class Main {
 				if (reponse == 5){
 					
 					lect=	new Lecture(choisirLoop.daoLoop);
+			
+					
+					
 				}
 				if (reponse == 6){
 					new InstrumentSolo();
@@ -119,6 +124,8 @@ public class Main {
 				if (reponse == 17){
 					new SeConnecterEspaceClient();
 				}
+				
+			
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
