@@ -16,7 +16,7 @@ public class Test {
     public static final String[] NOTE_NAMES = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
 
     public static void main(String[] args) throws Exception {
-        Sequence sequence = MidiSystem.getSequence(new File("LOOP/police.mid"));
+        Sequence sequence = MidiSystem.getSequence(new File("LOOP/madonna.mid"));
         
         
         
@@ -34,10 +34,10 @@ public class Test {
                     ShortMessage sm = (ShortMessage) message;
                     
                     int key = sm.getData1();
-                    if(key!=36){
-                    	sm.setMessage(NOTE_OFF,9,9,9);
-                    	
-                    }
+//                    if(key!=36){
+//                    	sm.setMessage(NOTE_OFF,9,9,9);
+//                    	
+//                    }
                     System.out.print("Channel: " + sm.getChannel() + " ");
                     if (sm.getCommand() == NOTE_ON) {
                         
