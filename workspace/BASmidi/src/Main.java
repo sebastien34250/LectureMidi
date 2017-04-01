@@ -42,7 +42,7 @@ public class Main {
 		listf.add("Mettre un instrument en mute");		// DONE
 		listf.add("Mettre tous les instruments en marche"); // DONE
 		listf.add("Mettre tous les instruments en mute");	// DONE
-		listf.add("Changer de tempo");					//
+		listf.add("Changer de tempo");					// DONE
 		listf.add("Modifier la loop");					//
 		listf.add("Définir les instruments des pads");	//
 		listf.add("Lire les pads");						//
