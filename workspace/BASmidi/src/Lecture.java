@@ -21,8 +21,11 @@ public class Lecture {
 		 boucle = 			ChoisirBoucle();		
 		 sequence = 	DéfinirSequence(boucle);
 		 sequencer = 	LireSequence(sequence);
+		 
 	}
 
+	
+	
 	private File ChoisirBoucle() {
 //		// Choix du fichier
 

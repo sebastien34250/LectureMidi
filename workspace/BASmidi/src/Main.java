@@ -82,6 +82,7 @@ public class Main {
 				if (reponse == 5){
 					mix = new Mix(true,true,true,true,true);
 					lect=	new Lecture(choisirLoop.daoLoop);
+					
 				}
 				if (reponse == 6){
 					InstrumentSolo instrSolo = new InstrumentSolo(lect,mix);
@@ -96,7 +97,7 @@ public class Main {
 					TousInstrumentMute tousInstruMute = new TousInstrumentMute(lect,mix);
 				}
 				if (reponse == 10){
-					new ChangerTempo();
+					ChangerTempo changerTempo = new ChangerTempo(lect);
 				}
 				if (reponse == 11){
 					new ModifierLoop();
